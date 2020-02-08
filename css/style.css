@@ -1,0 +1,230 @@
+/* ----------------------- CONTENTS --------
+1. Common 
+2. Body
+3. Header
+4. Navigation Menu
+5. Section
+6. Gallery
+7. Slider
+8. Map
+
+functions
+
+*/
+@import url("https://fonts.googleapis.com/css?family=Cabin&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Cabin', sans-serif;
+  background-color: #000;
+  color: #adadad;
+}
+
+header {
+  padding: 10px;
+  position: fixed;
+  z-index: 4;
+  width: 100%;
+  top: 0;
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+#navHeader .logo {
+  float: left;
+}
+
+#navHeader .logo img {
+  height: 20px;
+}
+
+#navHeader .menuButton {
+  margin: 1em;
+  width: 20px;
+  position: relative;
+  z-index: 10;
+  float: right;
+  font-size: 0;
+}
+
+#navHeader .menuButton::before, #navHeader .menuButton::after,
+#navHeader .menuButton span {
+  display: block;
+  content: '';
+  background-color: #fff;
+  border-radius: 3px;
+  height: 3px;
+  margin: 4px 0;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+#navHeader .menuButton:hover {
+  cursor: pointer;
+}
+
+#navHeader .menuButton::before {
+  background-color: #1e90ff;
+}
+
+#navHeader .menuButton::after {
+  background-color: #1e5000;
+}
+
+#navHeader .menuButton span {
+  background-color: #09bdbd;
+}
+
+#navHeader .open::before {
+  -webkit-transform: translateY(5px) rotate(135deg);
+          transform: translateY(5px) rotate(135deg);
+  background-color: #1e90ff;
+}
+
+#navHeader .open::after {
+  -webkit-transform: translateY(-9px) rotate(-135deg);
+          transform: translateY(-9px) rotate(-135deg);
+  background-color: #1e5000;
+}
+
+#navHeader .open span {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+#navHeader .navOverlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: table;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#navHeader .navOverlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+#navHeader .navOverlay ul.menu {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0;
+}
+
+#navHeader .navOverlay ul.menu li {
+  opacity: 0;
+  list-style: none;
+  -webkit-transition: translateY(20px);
+  transition: translateY(20px);
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+}
+
+#navHeader .navOverlay.open ul.menu li {
+  opacity: 1;
+  -webkit-transition: translateY(0px);
+  transition: translateY(0px);
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+#navHeader .navOverlay.open ul.menu li a {
+  font-size: 15px;
+  line-height: 60px;
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
+  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+  color: transparent;
+  text-decoration: none;
+  -webkit-transition: font-size 0.5s;
+  transition: font-size 0.5s;
+}
+
+#navHeader .navOverlay.open ul.menu li a:hover {
+  font-size: 20px;
+  opacity: 0.8;
+  -webkit-transition: font-size 0.5s, opacity 0.5s;
+  transition: font-size 0.5s, opacity 0.5s;
+}
+
+#navHeader .navOverlay.open ul.menu li:nth-child(1) {
+  -webkit-transition: opacity 0.5s 0.5s, -webkit-transform 0.5s 0.5s;
+  transition: opacity 0.5s 0.5s, -webkit-transform 0.5s 0.5s;
+  transition: opacity 0.5s 0.5s, transform 0.5s 0.5s;
+  transition: opacity 0.5s 0.5s, transform 0.5s 0.5s, -webkit-transform 0.5s 0.5s;
+}
+
+#navHeader .navOverlay.open ul.menu li:nth-child(2) {
+  -webkit-transition: opacity 0.7s 0.7s, -webkit-transform 0.7s 0.7s;
+  transition: opacity 0.7s 0.7s, -webkit-transform 0.7s 0.7s;
+  transition: opacity 0.7s 0.7s, transform 0.7s 0.7s;
+  transition: opacity 0.7s 0.7s, transform 0.7s 0.7s, -webkit-transform 0.7s 0.7s;
+}
+
+#navHeader .navOverlay.open ul.menu li:nth-child(3) {
+  -webkit-transition: opacity 0.9s 0.9s, -webkit-transform 0.9s 0.9s;
+  transition: opacity 0.9s 0.9s, -webkit-transform 0.9s 0.9s;
+  transition: opacity 0.9s 0.9s, transform 0.9s 0.9s;
+  transition: opacity 0.9s 0.9s, transform 0.9s 0.9s, -webkit-transform 0.9s 0.9s;
+}
+
+#navHeader .navOverlay.open ul.menu li:nth-child(4) {
+  -webkit-transition: opacity 1.1s 1.1s, -webkit-transform 1.1s 1.1s;
+  transition: opacity 1.1s 1.1s, -webkit-transform 1.1s 1.1s;
+  transition: opacity 1.1s 1.1s, transform 1.1s 1.1s;
+  transition: opacity 1.1s 1.1s, transform 1.1s 1.1s, -webkit-transform 1.1s 1.1s;
+}
+
+#home {
+  background-color: #000;
+  height: 100vh;
+}
+
+#mainContainer {
+  background-color: green;
+  height: 100vh;
+}
+/*# sourceMappingURL=style.css.map */

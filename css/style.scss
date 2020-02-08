@@ -1,0 +1,192 @@
+/* ----------------------- CONTENTS --------
+1. Common 
+2. Body
+3. Header
+4. Navigation Menu
+5. Section
+6. Gallery
+7. Slider
+8. Map
+
+functions
+
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+$blackBgColor           : #000;
+$whiteFontColor         : #adadad;
+$blueColor              : #1e90ff;
+$greenColor             : #1e5000;
+$blueGreenColor         : #09bdbd;
+$linearGradientBG       : linear-gradient(to right, $blueColor, $greenColor);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// ---FUNCTIONS 
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+// ---------------
+
+
+html,
+body {
+    width           : 100vw;
+    height          : 100vh;
+    font-family     : 'Cabin', sans-serif;
+    background-color: $blackBgColor;
+    color           : #adadad;
+}
+
+
+header {
+    padding         : 10px;
+    position        : fixed;
+    z-index         : 4;
+    width           : 100%;
+    top             : 0;
+    display         : block;
+    background      : rgba(0, 0, 0, 0.5);
+    border-radius   : 4px;
+}
+
+
+#navHeader{
+    .logo {
+        float: left;
+        img {
+            height: 20px;
+        }
+    }
+    .menuButton {
+        margin      : 1em;
+        width       : 20px;
+        position    : relative;
+        z-index     : 10;
+        float       : right;
+        font-size   : 0;
+        &::before,
+        &::after,
+
+        span {
+            display             : block;
+            content             : '';
+            background-color    : #fff;
+            border-radius       : 3px;
+            height              : 3px;
+            margin              : 4px 0;
+            transition          : all .4s ease-in-out;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        &::before {
+            background-color: $blueColor;
+        }
+        &::after {
+            background-color: $greenColor;
+        }
+        span {
+            background-color: $blueGreenColor;
+        }
+    }// End-of-MenuButton
+
+    .open::before {
+        transform: translateY(5px) rotate(135deg);
+        background-color: $blueColor;
+    }
+    .open::after {
+        transform: translateY(-9px) rotate(-135deg);
+        background-color: $greenColor;
+    }
+    .open span {
+        transform: scale(0);
+    }
+
+    .navOverlay {
+        height              : 100%;
+        width               : 100%;
+        position            : fixed;
+        display             : table;
+        top                 : 0;
+        left                : 0;
+        z-index             : 3;
+        background-color    : rgba(0, 0, 0, 0.8);
+        transition          : opacity 1s;
+        opacity             : 0;
+        visibility          : hidden;
+    }
+    .navOverlay.open {
+        opacity     : 1;
+        visibility  : visible;
+    }
+    .navOverlay ul.menu {
+        display         : table-cell;
+        vertical-align  : middle;
+        text-align      : center;
+        padding         : 0;
+    }
+    .navOverlay ul.menu li {
+        opacity     : 0;
+        list-style  : none;
+        transition  : translateY(20px);
+        transform   : translateY(20px);
+    }
+    .navOverlay.open ul.menu li {
+        opacity     : 1;
+        transition  : translateY(0px);
+        transform   : translateY(0px);
+    }
+    .navOverlay.open ul.menu li a {
+        font-size               : 15px;
+        line-height             : 60px;
+        letter-spacing          : 5px;
+        -webkit-background-clip : text;
+        background-clip         : text;
+        background-image        : $linearGradientBG;
+        color                   : transparent;
+        text-decoration         : none;
+        transition              : font-size 0.5s;
+    }
+    .navOverlay.open ul.menu li a:hover {
+        font-size: 20px;
+        opacity: 0.8;
+        transition: font-size 0.5s, opacity 0.5s;
+    }
+    .navOverlay.open ul.menu li:nth-child(1) {
+        transition: opacity 0.5s 0.5s, transform 0.5s 0.5s;
+    }
+    .navOverlay.open ul.menu li:nth-child(2) {
+        transition: opacity 0.7s 0.7s, transform 0.7s 0.7s;
+    }
+    .navOverlay.open ul.menu li:nth-child(3) {
+        transition: opacity 0.9s 0.9s, transform 0.9s 0.9s;
+    }
+    .navOverlay.open ul.menu li:nth-child(4) {
+        transition: opacity 1.1s 1.1s, transform 1.1s 1.1s;
+    }
+}//End-Of-NavHeader
+
+#home{
+    background-color    : $blackBgColor;
+    height              : 100vh;
+}
+
+#mainContainer{
+    background-color    : green;
+    height              : 100vh;
+}
