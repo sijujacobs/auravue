@@ -7,6 +7,7 @@ $(function() {
     	var message = $("#txtMessage").val();
   
         var text = "failed";
+        console.log(' btnSend :: : email ', email);
         
         setTimeout(function(){removeNotification() }, 3000);
         $.ajax({

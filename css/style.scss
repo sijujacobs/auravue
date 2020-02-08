@@ -287,6 +287,11 @@ header {
             float: right;
             clear: both;
             outline: none;
+
+            &:hover{
+                cursor: pointer;
+                background-image: $linearGradientBG;
+            }
         }
     }
 

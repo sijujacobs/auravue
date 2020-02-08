@@ -1,5 +1,5 @@
 <?php
-	$toEmail      = 'siju@auravue.com';
+	$toEmail      = 'sanish@auravue.com';
 	$errorMSG = "";
 
 	if (empty($_POST["name"])) {
@@ -22,7 +22,7 @@
 		}
 	}
 
-	$subject = "WEBSITE EMAIL";
+	$subject = "E-Mail from AURAVUE.COM";
 
 	if (empty($_POST["message"])) {
 		$errorMSG = "Message is required";

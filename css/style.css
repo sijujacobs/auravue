@@ -338,6 +338,12 @@ header {
   outline: none;
 }
 
+#contact .contactForm input.btnSend:hover {
+  cursor: pointer;
+  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
+  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+}
+
 #contact .address {
   text-align: left;
   height: 120px;
