@@ -45,6 +45,8 @@ functions
 
 html,
 body {
+  display: -ms-grid;
+  display: grid;
   width: 100vw;
   height: 100vh;
   font-family: 'Cabin', sans-serif;
@@ -63,15 +65,15 @@ header {
   border-radius: 4px;
 }
 
-#navHeader .logo {
+#navbar .logo {
   float: left;
 }
 
-#navHeader .logo img {
+#navbar .logo img {
   height: 20px;
 }
 
-#navHeader .menuButton {
+#navbar .menuButton {
   margin: 1em;
   width: 20px;
   position: relative;
@@ -80,8 +82,8 @@ header {
   font-size: 0;
 }
 
-#navHeader .menuButton::before, #navHeader .menuButton::after,
-#navHeader .menuButton span {
+#navbar .menuButton::before, #navbar .menuButton::after,
+#navbar .menuButton span {
   display: block;
   content: '';
   background-color: #fff;
@@ -92,40 +94,40 @@ header {
   transition: all .4s ease-in-out;
 }
 
-#navHeader .menuButton:hover {
+#navbar .menuButton:hover {
   cursor: pointer;
 }
 
-#navHeader .menuButton::before {
+#navbar .menuButton::before {
   background-color: #1e90ff;
 }
 
-#navHeader .menuButton::after {
+#navbar .menuButton::after {
   background-color: #1e5000;
 }
 
-#navHeader .menuButton span {
+#navbar .menuButton span {
   background-color: #09bdbd;
 }
 
-#navHeader .open::before {
+#navbar .open::before {
   -webkit-transform: translateY(5px) rotate(135deg);
           transform: translateY(5px) rotate(135deg);
   background-color: #1e90ff;
 }
 
-#navHeader .open::after {
+#navbar .open::after {
   -webkit-transform: translateY(-9px) rotate(-135deg);
           transform: translateY(-9px) rotate(-135deg);
   background-color: #1e5000;
 }
 
-#navHeader .open span {
+#navbar .open span {
   -webkit-transform: scale(0);
           transform: scale(0);
 }
 
-#navHeader .navOverlay {
+#navbar .navOverlay {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -140,19 +142,19 @@ header {
   visibility: hidden;
 }
 
-#navHeader .navOverlay.open {
+#navbar .navOverlay.open {
   opacity: 1;
   visibility: visible;
 }
 
-#navHeader .navOverlay ul.menu {
+#navbar .navOverlay ul.menu {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
   padding: 0;
 }
 
-#navHeader .navOverlay ul.menu li {
+#navbar .navOverlay ul.menu li {
   opacity: 0;
   list-style: none;
   -webkit-transition: translateY(20px);
@@ -161,7 +163,7 @@ header {
           transform: translateY(20px);
 }
 
-#navHeader .navOverlay.open ul.menu li {
+#navbar .navOverlay.open ul.menu li {
   opacity: 1;
   -webkit-transition: translateY(0px);
   transition: translateY(0px);
@@ -169,7 +171,7 @@ header {
           transform: translateY(0px);
 }
 
-#navHeader .navOverlay.open ul.menu li a {
+#navbar .navOverlay.open ul.menu li a {
   font-size: 15px;
   line-height: 60px;
   letter-spacing: 5px;
@@ -183,35 +185,35 @@ header {
   transition: font-size 0.5s;
 }
 
-#navHeader .navOverlay.open ul.menu li a:hover {
+#navbar .navOverlay.open ul.menu li a:hover {
   font-size: 20px;
   opacity: 0.8;
   -webkit-transition: font-size 0.5s, opacity 0.5s;
   transition: font-size 0.5s, opacity 0.5s;
 }
 
-#navHeader .navOverlay.open ul.menu li:nth-child(1) {
+#navbar .navOverlay.open ul.menu li:nth-child(1) {
   -webkit-transition: opacity 0.5s 0.5s, -webkit-transform 0.5s 0.5s;
   transition: opacity 0.5s 0.5s, -webkit-transform 0.5s 0.5s;
   transition: opacity 0.5s 0.5s, transform 0.5s 0.5s;
   transition: opacity 0.5s 0.5s, transform 0.5s 0.5s, -webkit-transform 0.5s 0.5s;
 }
 
-#navHeader .navOverlay.open ul.menu li:nth-child(2) {
+#navbar .navOverlay.open ul.menu li:nth-child(2) {
   -webkit-transition: opacity 0.7s 0.7s, -webkit-transform 0.7s 0.7s;
   transition: opacity 0.7s 0.7s, -webkit-transform 0.7s 0.7s;
   transition: opacity 0.7s 0.7s, transform 0.7s 0.7s;
   transition: opacity 0.7s 0.7s, transform 0.7s 0.7s, -webkit-transform 0.7s 0.7s;
 }
 
-#navHeader .navOverlay.open ul.menu li:nth-child(3) {
+#navbar .navOverlay.open ul.menu li:nth-child(3) {
   -webkit-transition: opacity 0.9s 0.9s, -webkit-transform 0.9s 0.9s;
   transition: opacity 0.9s 0.9s, -webkit-transform 0.9s 0.9s;
   transition: opacity 0.9s 0.9s, transform 0.9s 0.9s;
   transition: opacity 0.9s 0.9s, transform 0.9s 0.9s, -webkit-transform 0.9s 0.9s;
 }
 
-#navHeader .navOverlay.open ul.menu li:nth-child(4) {
+#navbar .navOverlay.open ul.menu li:nth-child(4) {
   -webkit-transition: opacity 1.1s 1.1s, -webkit-transform 1.1s 1.1s;
   transition: opacity 1.1s 1.1s, -webkit-transform 1.1s 1.1s;
   transition: opacity 1.1s 1.1s, transform 1.1s 1.1s;
@@ -219,12 +221,161 @@ header {
 }
 
 #home {
-  background-color: #000;
+  width: 100%;
   height: 100vh;
+  display: table;
+  background: url(../images/hero.jpg) center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  -webkit-animation: fadein 3s;
+          animation: fadein 3s;
+  z-index: 1;
 }
 
 #mainContainer {
-  background-color: green;
+  background-color: #000;
   height: 100vh;
+  display: -ms-grid;
+  display: grid;
+}
+
+#about {
+  clear: both;
+  background-image: url("../images/boats.jpeg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.imageSlider {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.imageSlider img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+#contact {
+  clear: both;
+  background-image: url("../images/w1.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2;
+  display: -ms-grid;
+  display: grid;
+}
+
+#contact .contactOverlay {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+#contact .mapSection {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  padding-left: 30px;
+  width: 100%;
+}
+
+#contact .mapSection .mapFrame {
+  width: 100%;
+  height: 300px;
+}
+
+#contact .contactForm {
+  height: 200px;
+  padding: 5px 20px;
+  margin: 0 auto;
+}
+
+#contact .contactForm input.submitBtn:hover {
+  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
+  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+}
+
+#contact .contactForm input, #contact .contactForm textarea {
+  width: 80%;
+  padding: 5px;
+  margin: 3px 0 3px 0;
+  border: 1px solid #252525;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: #222;
+  color: #fff;
+}
+
+#contact .contactForm .action {
+  width: 80%;
+}
+
+#contact .contactForm input.btnSend {
+  background-color: #1e90ff;
+  color: #fff;
+  width: 125px;
+  float: right;
+  border: 1px solid #7baae6;
+  float: right;
+  clear: both;
+  outline: none;
+}
+
+#contact .address {
+  text-align: left;
+  height: 120px;
+  padding: 5px 20px;
+}
+
+#contact p {
+  color: bisque;
+}
+
+#contact .formColumn p {
+  font-size: 10pt;
+}
+
+.sectionHeader {
+  position: relative;
+  padding: 20px 0px 20px 30px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
+  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+}
+
+.headerLine {
+  height: 2px;
+  width: 97%;
+  margin-top: 5px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
+  background-image: linear-gradient(to right, #1e90ff, #1e5000);
 }
 /*# sourceMappingURL=style.css.map */
