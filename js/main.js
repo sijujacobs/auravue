@@ -32,20 +32,30 @@
 
     
     $(document).ready(function(){
-        $nextIndex      = 1;			
-        $currentIndex   = 0;		
-        $interval       = 3500;	
-        $fadeTime       = 8500;	
-        $imgNum         = $('.imageSlider img').length;
+        
+        smoothSlider(0);
 
-        nextFadeIn();
+        function smoothSlider(){
+            var slides = $('#slideshow img');
+            slides[0].className = 'show';
 
-        function nextFadeIn(){
-            $('.imageSlider img').eq($currentIndex).fadeOut($fadeTime).delay($interval)
-            .end().eq($nextIndex).hide().fadeIn($fadeTime, nextFadeIn).delay($interval);
-            if($nextIndex < $imgNum-1){ $nextIndex++; } else { $nextIndex = 0;}
-            if($currentIndex < $imgNum-1){ $currentIndex++; } else { $currentIndex =0; }
-        };
+            function slideShow(sIndex) {
+                slides[sIndex].className = '';
+                if (sIndex == slides.length - 1) {
+                    slides[0].className = 'show';
+                    sIndex = -1;
+                }
+                if (sIndex > -1) {
+                    slides[sIndex + 1].className = 'show';
+                }
+                setTimeout(function() {
+                    slideShow(++sIndex % slides.length)
+                }, 10000); // setTimer duration should be same to CSS opacity duration
+            }
+            setTimeout(function() {
+                slideShow(0)
+            }, 10000); // setTimer duration should be same to CSS opacity duration
+        }
     });
 
     

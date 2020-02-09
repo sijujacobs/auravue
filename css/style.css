@@ -241,7 +241,6 @@ header {
 }
 
 #about {
-  clear: both;
   background-image: url("../images/boats.jpeg");
   height: 500px;
   background-attachment: fixed;
@@ -250,20 +249,35 @@ header {
   background-size: cover;
 }
 
-.imageSlider {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+#slider {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.imageSlider img {
+#slider #slideshow {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+}
+
+#slider #slideshow img {
+  margin: 0 auto;
   width: 100%;
   height: auto;
+  opacity: 0;
+  -webkit-transition: opacity 10s;
+  transition: opacity 10s;
   position: absolute;
 }
 
+#slider #slideshow .show {
+  opacity: 1;
+}
+
 #contact {
-  clear: both;
   background-image: url("../images/w1.jpg");
   height: 500px;
   background-attachment: fixed;
@@ -271,20 +285,20 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 2;
-  display: -ms-grid;
-  display: grid;
+}
+
+#contact .sectionContent {
+  padding: 5%;
 }
 
 #contact .contactOverlay {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 15px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-items: center;
+  -ms-grid-columns: (minmax(350px, 550px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(350px, 550px));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #contact .mapSection {
@@ -299,68 +313,68 @@ header {
 #contact .mapSection .mapFrame {
   width: 100%;
   height: 300px;
+  -webkit-box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
-#contact .contactForm {
+#contact .addressSection {
   height: 200px;
   padding: 5px 20px;
   margin: 0 auto;
 }
 
-#contact .contactForm input.submitBtn:hover {
+#contact .addressSection input.submitBtn:hover {
   background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
   background-image: linear-gradient(to right, #1e90ff, #1e5000);
 }
 
-#contact .contactForm input, #contact .contactForm textarea {
+#contact .addressSection input, #contact .addressSection textarea {
   width: 80%;
   padding: 5px;
   margin: 3px 0 3px 0;
   border: 1px solid #252525;
   border-radius: 4px;
   resize: vertical;
-  background-color: #222;
+  background-color: #000;
   color: #fff;
+  -webkit-box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
-#contact .contactForm .action {
+#contact .addressSection .action {
   width: 80%;
 }
 
-#contact .contactForm input.btnSend {
+#contact .addressSection input.btnSend {
   background-color: #1e90ff;
-  color: #fff;
+  border: 1px solid #1e90ff;
+  color: #adadad;
   width: 125px;
   float: right;
-  border: 1px solid #7baae6;
   float: right;
   clear: both;
   outline: none;
+  -webkit-box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
-#contact .contactForm input.btnSend:hover {
+#contact .addressSection input.btnSend:hover {
   cursor: pointer;
   background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
   background-image: linear-gradient(to right, #1e90ff, #1e5000);
 }
 
-#contact .address {
+#contact .addressSection .address {
   text-align: left;
   height: 120px;
   padding: 5px 20px;
-}
-
-#contact p {
-  color: bisque;
-}
-
-#contact .formColumn p {
-  font-size: 10pt;
+  color: #abe7fb;
 }
 
 .sectionHeader {
   position: relative;
   padding: 20px 0px 20px 30px;
+  background-color: #000;
 }
 
 .sectionTitle {
@@ -383,5 +397,37 @@ header {
   margin-top: 5px;
   background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
   background-image: linear-gradient(to right, #1e90ff, #1e5000);
+}
+
+.maskedTitle {
+  text-align: center;
+  font-size: 15vw;
+  background-image: url("../images/boats.jpeg");
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-animation-name: animateTextMask;
+  -webkit-animation-duration: 80s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  opacity: .2;
+}
+
+@-webkit-keyframes animateTextMask {
+  0% {
+    background-position: left bottom;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}
+
+@keyframes animateTextMask {
+  0% {
+    background-position: left bottom;
+  }
+  100% {
+    background-position: right bottom;
+  }
 }
 /*# sourceMappingURL=style.css.map */
