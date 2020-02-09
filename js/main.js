@@ -32,29 +32,25 @@
 
     
     $(document).ready(function(){
+        smoothSlider();
         
-        smoothSlider(0);
-
         function smoothSlider(){
             var slides = $('#slideshow img');
             slides[0].className = 'show';
+            slideShow(0);
 
             function slideShow(sIndex) {
                 slides[sIndex].className = '';
-                if (sIndex == slides.length - 1) {
+                if (sIndex === slides.length - 1) {
                     slides[0].className = 'show';
                     sIndex = -1;
-                }
-                if (sIndex > -1) {
+                }else if (sIndex > -1) {
                     slides[sIndex + 1].className = 'show';
                 }
                 setTimeout(function() {
                     slideShow(++sIndex % slides.length)
                 }, 10000); // setTimer duration should be same to CSS opacity duration
             }
-            setTimeout(function() {
-                slideShow(0)
-            }, 10000); // setTimer duration should be same to CSS opacity duration
         }
     });
 
