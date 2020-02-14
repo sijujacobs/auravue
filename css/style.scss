@@ -13,6 +13,7 @@ functions
 */
 
 @import url("https://fonts.googleapis.com/css?family=Cabin&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Tangerine&display=swap');
 $blackBgColor: #000;
 $whiteFontColor: #adadad;
 $blueColor: #1e90ff;
@@ -185,7 +186,7 @@ header {
 #home {
   width: 100%;
   height: 100vh;
-    // display: table;
+  // display: table;
   background: url(../images/hero.jpg) center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -210,26 +211,33 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-//   img {
-//     width: 100%;
-//     height: auto;
-//   }
-    .overlayCenter{
-        display: grid;
-        grid-template-rows: minmax(300px, 450px);
-        justify-items: center;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.5);
-        .aboutDesc{
-            display: grid;
-            justify-items: center;
-            align-items: center;
-            width: 60%;
-            height: 100%;
-            background-color: transparent;
-        }
+  //   img {
+  //     width: 100%;
+  //     height: auto;
+  //   }
+  .overlayCenter {
+    display: grid;
+    grid-template-rows: minmax(300px, 450px);
+    justify-items: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    .aboutDesc {
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      width: 60%;
+      height: 100%;
+      background-color: transparent;
+      
+      p {
+        text-align: justify;
+        font-family: 'Tangerine', cursive;
+        font-size: 2vw;
+        letter-spacing: 0.2em;
+        line-height: 3vw;
+      }
     }
-
+  }
 }
 
 #slider {

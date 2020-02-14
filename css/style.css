@@ -12,6 +12,7 @@ functions
 
 */
 @import url("https://fonts.googleapis.com/css?family=Cabin&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Tangerine&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -272,6 +273,14 @@ header {
   width: 60%;
   height: 100%;
   background-color: transparent;
+}
+
+#about .overlayCenter .aboutDesc p {
+  text-align: justify;
+  font-family: 'Tangerine', cursive;
+  font-size: 2vw;
+  letter-spacing: 0.2em;
+  line-height: 3vw;
 }
 
 #slider {
